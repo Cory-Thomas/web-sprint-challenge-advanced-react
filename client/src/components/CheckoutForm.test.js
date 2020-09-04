@@ -32,5 +32,5 @@ test("form shows success message on submit with form details", () => {
 
     fireEvent.click( checkoutButton )
 
-    screen.getByText( /you have ordered some plants! woo-hoo!/i ) // adding .not fails the test so this passes
+    screen.getByText( /you have ordered some plants! woo-hoo!/i )  // adding .not fails the test so this passes
 });

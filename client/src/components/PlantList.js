@@ -29,6 +29,11 @@ export default class PlantList extends Component {
   render() {
     return (
       <main className="plant-list">
+        {/* <form>
+          <label htmlFor="search">Search: </label>
+          <input type="text" id="search" />
+          <button type="submit" >Submit</button>
+        </form> */}
         {this.state?.plants?.map((plant) => (
           <div className="plant-card" key={plant.id}>
             <img className="plant-image" src={plant.img} alt={plant.name} />
