@@ -2,6 +2,23 @@ import React, { Component } from "react";
 import axios from "axios";
 
 export default class PlantList extends Component {
+  constructor() {
+    super();
+    this.state = {
+      plants: []
+    };
+  };
+
+  componentDidMount() {
+    axios
+      .get('http://localhost:3333/plants')
+        .then( response => {
+          this.setState({ plants: response.data.plantsData });
+        })
+        .catch( error => {
+          console.log(error);
+        })
+  };
   // add state with a property called "plants" - initialize as an empty array
 
   // when the component mounts:
@@ -12,6 +29,11 @@ export default class PlantList extends Component {
   render() {
     return (
       <main className="plant-list">
+        {/* <form>
+          <label htmlFor="search">Search: </label>
+          <input type="text" id="search" />
+          <button type="submit" >Submit</button>
+        </form> */}
         {this.state?.plants?.map((plant) => (
           <div className="plant-card" key={plant.id}>
             <img className="plant-image" src={plant.img} alt={plant.name} />
